@@ -14,10 +14,14 @@ class DropboxWrapper extends Nette\Object
     /** @var  \TijsVerkoyen\Dropbox\Dropbox */
     private $dropbox;
 
-    public function __construct($appKey, $appSecret, DatabaseWrapper $databaseWrapper)
+    /** @var  string */
+    private $tempDir;
+
+    public function __construct($appKey, $appSecret, $tempDir, DatabaseWrapper $databaseWrapper)
     {
         $this->database = $databaseWrapper;
         $this->dropbox = new \TijsVerkoyen\Dropbox\Dropbox($appKey, $appSecret);
+        $this->tempDir = $tempDir;
     }
 
     public function setAccessTokens()
@@ -71,10 +75,10 @@ class DropboxWrapper extends Nette\Object
 
     public function putFile($path, $string)
     {
-        $pathParts = preg_match('#(.+/)*(.+)#', $path, $matches);
+        preg_match('#(.+/)*(.+)#', $path, $matches);
         array_shift($matches);
         list($dir, $filename) = $matches;
-        $tempFileName = __DIR__ . '/../../temp/' . $filename;
+        $tempFileName = $this->tempDir . $filename;
         $handle = fopen($tempFileName, "w");
         fwrite($handle, $string);
         fclose($handle);
