@@ -1,0 +1,15 @@
+log/*
+temp/*
+vendor/*
+!vendor/others
+composer.lock
+www/index.php
+www/.htaccess
+.idea/
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml

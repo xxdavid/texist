@@ -1,0 +1,10 @@
+{block content}
+<h1 n:block="title">List of Notes</h1>
+<ul>
+{foreach $filesList as $file}
+<li>
+    <a n:href="Document:view $file">{$file|capitalize}</a>
+</li>
+{/foreach}
+</ul>
+{/block}

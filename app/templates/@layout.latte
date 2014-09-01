@@ -1,0 +1,40 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>{ifset #title}{include title|striptags} | {/ifset}Texist</title>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/semantic-ui/0.19.0/css/semantic.min.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	{block head}{/block}
+</head>
+
+<body>
+	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+    <div id="action-buttons">
+        <a n:href="Homepage:default" class="ui tiny button" n:if="$presenter != Homepage">
+            <i class="list layout icon"></i>
+            List of Notes
+        </a>
+        {block buttons|indent:3}{/block}
+
+        {var $inOrOut = $loggedIn ? 'out' : 'in'}
+        <a n:href="Sign:$inOrOut $url" class="ui tiny button">
+            <i class="icon user"></i>
+            Sign {$inOrOut}
+        </a>
+    </div>
+
+	{include content}
+
+	{block scripts}{/block}
+</body>
+</html>

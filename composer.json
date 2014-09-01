@@ -1,0 +1,22 @@
+{
+    "name": "xxdavid/texist",
+    "type": "project",
+    "description": "Texy! live editor with Dropbox integration",
+    "keywords": ["texy", "editor", "dropbox"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Pavlík",
+            "homepage": "http://dpavlik.cz",
+            "role": "Developer"
+        }
+    ],
+	"require": {
+		"nette/nette": "~2.2.0",
+		"tijsverkoyen/dropbox": "dev-master",
+        "texy/texy": "dev-master"
+	},
+    "autoload": {
+        "classmap": ["app/bootstrap.php"]
+    }
+}

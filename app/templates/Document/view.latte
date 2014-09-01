@@ -1,0 +1,11 @@
+{block content}
+<h1 n:block="title">{$filename|capitalize}</h1>
+<div id="text">{$processedText|noescape}</div>
+{/block}
+
+{block buttons}
+<a n:href="Document:edit $filename" class="ui tiny button" n:if="$loggedIn">
+    <i class="icon edit"></i>
+    Edit
+</a>
+{/block}
