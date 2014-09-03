@@ -17,8 +17,8 @@ class Texist
     /** @var  string|null */
     private $email = null;
 
-    /** @var  array */
-    private $trustedIPs = false;
+    /** @var  array|string|bool|null */
+    private $debugMode = null;
 
     /**
      * Sets DB connection
@@ -81,14 +81,19 @@ class Texist
     }
 
     /**
-     * Sets Development mode based on IP
-     * Possible values: [...] (visitor from this IPs will see Tracy -- Debug bar, verbose exceptions etc.), true (debug mode). false (production mode)
+     * Sets Debug mode
+     * Possible values:
+     * - [...] (visitor from this IPs will see Tracy -- Debug bar, verbose exceptions etc.)
+     * - string with IPs (IP) separated by comma (visitor from this IP will see Tracy)
+     * - true (force debug mode)
+     * - false (force production mode)
+     * - null (detect automatically)
      * @link http://doc.nette.org/en/2.2/configuring#toc-development-mode
-     * @param array|bool $ips
+     * @param array|string|bool|null $value
      */
-    public function setTrustedIPs($value)
+    public function setDebugMode($value)
     {
-        $this->trustedIPs = $value;
+        $this->debugMode = $value;
     }
 
 
@@ -106,7 +111,9 @@ class Texist
 
         $configurator = new Nette\Configurator;
 
-        $configurator->setDebugMode($this->trustedIPs);
+        if ($this->debugMode !== null) {
+            $configurator->setDebugMode($this->debugMode);
+        }
 
         $configurator->enableDebugger($this->logDir, $this->email);
 
