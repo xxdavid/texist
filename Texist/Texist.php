@@ -20,6 +20,9 @@ class Texist
     /** @var  array|string|bool|null */
     private $debugMode = null;
 
+    /** @var string */
+    private $texyWrapper = 'App\Model\TexyWrapper';
+
     /**
      * Sets DB connection
      * @param string $host
@@ -96,6 +99,16 @@ class Texist
         $this->debugMode = $value;
     }
 
+    /**
+     * Sets Texy Wrapper
+     * NOTICE: Your Texy Wrapper must implements Texist\ITexyWrapper interface and must be loaded
+     * @param string $className
+     */
+    public function setTexyWrapper($className)
+    {
+        $this->texyWrapper = $className;
+    }
+
 
     public function run()
     {
@@ -130,6 +143,7 @@ class Texist
         $configurator->addParameters([
             'database' => $this->database,
             'dropbox' => $this->dropboxAppKeys,
+            'texyWrapper' => $this->texyWrapper,
         ]);
 
         $container = $configurator->createContainer();

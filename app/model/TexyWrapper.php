@@ -3,9 +3,10 @@
 namespace App\Model;
 
 use Nette,
-    Texy\Texy;
+    Texy\Texy,
+    Texist;
 
-class TexyWrapper extends Nette\Object
+class TexyWrapper extends Nette\Object implements Texist\ITexyWrapper
 {
     /** @var  Texy */
     private $texy;
