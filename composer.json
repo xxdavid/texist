@@ -17,6 +17,6 @@
         "texy/texy": "dev-master"
 	},
     "autoload": {
-        "classmap": ["app/bootstrap.php"]
+        "classmap": ["Texist/"]
     }
 }

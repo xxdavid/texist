@@ -109,6 +109,8 @@ class Texist
             throw new Exception('You have to call setTempDirectory() before run().');
         }
 
+        $appDir = __DIR__ . '/../app';
+
         $configurator = new Nette\Configurator;
 
         if ($this->debugMode !== null) {
@@ -120,10 +122,10 @@ class Texist
         $configurator->setTempDirectory($this->tempDir);
 
         $configurator->createRobotLoader()
-            ->addDirectory(__DIR__)
+            ->addDirectory($appDir)
             ->register();
 
-        $configurator->addConfig(__DIR__ . '/config/config.neon');
+        $configurator->addConfig($appDir . '/config/config.neon');
 
         $configurator->addParameters([
             'database' => $this->database,
