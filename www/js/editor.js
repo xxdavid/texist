@@ -3,16 +3,24 @@
  */
 $(function(){
     var timeoutId;
+
     $.ajaxSetup({
         timeout: 4000
     });
-    $('textarea').keydown(function(e) {
+
+    var $textarea = $('textarea'), $preview = $('#preview');
+
+    $textarea.keydown(function(e) {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(function() {
-            $.post(window.location.href+'/process', { text: $('textarea').val() }, function(data) {
-                $('#output').html(data);
+            var mask = new RegExp("[^a-zA-Z0-9_\\u00A1-\\uFFFF]", "g");
+
+            $.post(window.location.href + '/process', { text: $textarea.val() }, function(data) {
+                $preview.html(data);
+                $('#counter').text($preview.text().replace(mask, '').length + ' chars');
             });
-        }, 1000);
+        }, 800);
+
         if (e.which == 9 /* TAB */ && !e.ctrlKey && !e.altKey) {
             if (e.target.setSelectionRange) { // non-IE
                 var start = e.target.selectionStart, end = e.target.selectionEnd;
@@ -30,6 +38,7 @@ $(function(){
                 e.target.setSelectionRange(start === end ? start + 1 : start, start + sel.length);
                 e.target.focus();
                 e.target.scrollTop = top; // Firefox
+
             } else if (e.target.createTextRange) { // ie
                 document.selection.createRange().text = "\t";
             }
@@ -37,9 +46,16 @@ $(function(){
                 $(this).one('keypress', function(e) { return false; });
             }
             return false;
+
         } else if (e.which == 27 /* ESC */ && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+            $(e.target).blur();
             var inputs = $(':input');
             inputs.eq(inputs.index(e.target) - inputs.length + 1).focus();
         }
+
+    }).scroll(function() {
+        var pos = ($preview.prop('scrollHeight') - $preview.height()) * $textarea.scrollTop() / ($textarea.prop('scrollHeight') - $textarea.height());
+        $preview.scrollTop(pos);
+
     }).focus();
 });

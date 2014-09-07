@@ -1,99 +1,143 @@
 /*!
-	(c) David Grudl
-	(c) David Pavlík
+    (c) David Grudl
+    (c) David Pavlík
 */
-
-@import 'libs/reset.css';
-@import 'libs/classes.css';
-
-
-/*------------------------------------------------------------------*/
-
-body, input, select, textarea {
-    font-family: Verdana, "Geneva CE", lucida, sans-serif;
+body,input,select,textarea {
+    font-family: Verdana,"Geneva CE",lucida,sans-serif;
+    tab-size: 4;
+    -moz-tab-size: 4;
 }
 
-
-h1, h2, h3, h4, .perex, #download {
+h1,h2,h3,h4,.perex,#download {
     font-family: Trebuchet MS,"Geneva CE",lucida,sans-serif;
 }
 
-
 body {
-    font-size: 80%;
     line-height: 1.65;
     color: #444;
     margin: 10px;
     padding: 0;
 }
 
+#wrapper {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
 
 pre {
     line-height: 1.4;
 }
 
-
-html {
+body,html {
     height: 100%;
+    overflow: hidden;
 }
 
+p {
+    margin: 1em 0;
+    padding: 0;
+}
 
-/* zarovnani textu */
-p { margin: 1em 0; padding: 0; }
-
-
-/* titulky */
-h1, h2, h3, h4 {
-    text-indent: 0px;
-    margin: 1.2em 0 0.7em;
+h1,h2,h3,h4 {
     color: #1e5eb6;
 }
 
-h1 { font-size: 185%; font-weight: normal; margin: .2em 0; }
-h2 { font-size: 150%; font-weight: normal; }
-h3 { font-size: 120%; color: black; }
+h1 {
+    font-size: 185%;
+    font-weight: 400;
+    margin: .2em 0;
+}
 
+h2 {
+    font-size: 150%;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 120%;
+    color: #000;
+}
 
 h1 small {
     color: gray;
     margin-left: 10px;
 }
 
-
-div#output, pre {
-    font-weight: normal;
-    line-height: 1.4;
+#preview {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
     overflow: auto;
-    width: 98%;
+    box-sizing: border-box;
+    padding: 0 1em 1em 2em;
 }
 
-
-div#output {
-    float: right;
-    width: 49%;
-    height: 95%;
-    margin-top: -.7em;
+textarea {
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    background: #F2F2F2;
+    border: 1px solid gray;
+    padding: .6em 0 .6em .7em;
+    box-sizing: border-box;
 }
 
 form {
     display: inline;
 }
 
-textarea {
-    float: left;
-    width: 49%;
-    height: 95%;
-    background: #F2F2F2;
-    border: 1px solid gray;
-    padding: 3px;
-}
-
 pre {
     background: #F8F8F8;
+}
+
+#help {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    margin: 0;
+    font-size: 185%;
+    color: #1e5eb6;
+    border-bottom: 1px dotted #000;
+    line-height: 1;
+}
+
+div.htmltooltip {
+    position: absolute;
+    z-index: 1000;
+    left: -1000px;
+    top: -1000px;
+    background: #272727;
+    border: 10px solid #000;
+    color: #fff;
+    padding: 3px;
+    width: 250px;
+    font-size: 80%;
+}
+
+div.htmltooltip ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.figure p {
+    text-align: center;
+    font-style: italic;
 }
 
 #action-buttons {
     position: absolute;
     right: 10px;
     top: 10px;
+}
+
+h1 {
+    font-size: 185%;
+    font-weight: normal;
+    margin: -.2em 0;
 }
