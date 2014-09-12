@@ -80,7 +80,7 @@ $texist->setTempDirectory(__DIR__ . '/temp/');
 ### Optional Settings
 #### Set Logging Directory
 ```php
-$texist->setLogDirectory(__DIR__ . '/log/);
+$texist->setLogDirectory(__DIR__ . '/log/');
 ```
 
 #### Set Email
@@ -91,17 +91,17 @@ $texist->setEmail('john@doe.com');
 ```
 
 #### Set [Debug Mode](http://doc.nette.org/en/2.2/configuring#toc-development-mode)
-This is little bit complicated.
+This a is little bit complicated.
 Syntax is:
 
-```
+```php
 $texist->setDebugMode($value);
 ```
 And possible values are: 
 
- - [...] (visitor from this IPs will see Tracy -- Debug bar, verbose exceptions etc.)
+ - array of IPs (IP) (visitor from this IPs will see Tracy -- Debug bar, verbose exceptions etc.)
  - string with IPs (IP) separated by comma (visitor from this IP will see Tracy)
- -  true (force debug mode)
+ - true (force debug mode)
  - false (force production mode)
  - null (detect automatically)
 
@@ -110,7 +110,7 @@ By default it's detected automatically.
 #### Set custom Texy Wrapper
 By default Texy library is used as is without any configuration. That probably isn't what you want.  Therefore you can write your own Texy Wrapper. You can inspire yourself in the [default Texy Wrapper](app/model/TexyWrapper.php). There are only two rules your class have to comply: 
 
- 1 . Implement Texist\ITexyWrapper
+ 1. Implement Texist\ITexyWrapper
  2. Have `process` function (that's result of the first rule)
 
 That means you can even use Markdown for rendering. But why would you do that when there's a better alternative.
@@ -145,7 +145,7 @@ Notice the injecting of Texy library in the constructor. You can use it because 
 
 Next you have to load that file and call `setTexyWrapper()` with the name of your Texy Wrapper class.
 
-```
+```php
 include 'MyTexyWrapper.php';
 $texist->setTexyWrapper('MyTexyWrapper');
 ```
