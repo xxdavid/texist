@@ -151,7 +151,7 @@ $texist->setTexyWrapper('MyTexyWrapper');
 ```
 
 ### First sign in
-If you now go to the base URL of your project, it throw an error. So go to `/sign/in` . There you should see Dropbox permissions request. Grant it. **And you're done.** Enjoy your writing.
+If you now go to the base URL of your project, it will throw an error. So go to `/sign/in` . There you should see Dropbox permissions request. Grant it. **And you're done.** Enjoy your writing.
 
 ## License: MIT
 See [LICENSE](LICENSE).
