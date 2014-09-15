@@ -27,7 +27,7 @@
         {block buttons|indent:3}{/block}
 
         {var $inOrOut = $loggedIn ? 'out' : 'in'}
-        <a n:href="Sign:$inOrOut $url" class="ui tiny button">
+        <a n:href="Sign:$inOrOut $url" class="ui tiny button" data-no-instant>
             <i class="icon user"></i>
             Sign {$inOrOut}
         </a>
@@ -35,6 +35,9 @@
 
 	{include content}
 
-	{block scripts}{/block}
+    <script src="{$basePath}/js/instantclick.min.js" data-no-instant></script>
+    <script data-no-instant>InstantClick.init(70);</script>
+	{block scripts}
+	{/block}
 </body>
 </html>
