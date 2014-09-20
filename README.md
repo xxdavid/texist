@@ -91,7 +91,7 @@ $texist->setEmail('john@doe.com');
 ```
 
 #### Set [Debug Mode](http://doc.nette.org/en/2.2/configuring#toc-development-mode)
-This a is little bit complicated.
+This is a little bit complicated.
 Syntax is:
 
 ```php
