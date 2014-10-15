@@ -35,7 +35,7 @@ $texist->run();
 Configuration will be described [below](#user-content-configuration).
 
 ### 3. Rewrite requests to index.php
-#### Apache (.htcaces)
+#### Apache (.htaccess)
 ```
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
