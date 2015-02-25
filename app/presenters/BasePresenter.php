@@ -3,7 +3,8 @@
 namespace App\Presenters;
 
 use Nette,
-	App\Model;
+	App\Model,
+    Kdyby\Autowired\AutowireProperties;
 
 
 /**
@@ -11,14 +12,25 @@ use Nette,
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
-    /** @var Model\DropboxWrapper @inject */
-    public $dropbox;
+    use AutowireProperties;
+
+    /** @var Model\IStorage @inject */
+    public $storage;
+
+    /**
+     * @var Model\DropboxWrapper
+     * @autowire
+     */
+    protected $dropbox;
 
     public function beforeRender()
     {
         parent::beforeRender();
-        if ($this->getName() != "Sign") {
-            $this->dropbox->setAccessTokens();
+
+        if ($this->getName() != 'Sign' and $this->getName() != 'Init') {
+            if (!$this->storage->isInitialized()) {
+                $this->redirect(302, 'Init:default');
+            }
         }
 
         $this->template->loggedIn = $this->getUser()->isLoggedIn();

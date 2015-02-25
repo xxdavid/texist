@@ -3,18 +3,17 @@
 namespace App\Model;
 
 use Nette,
-    Texy\Texy,
-    Texist;
+    Texy;
 
-class TexyWrapper extends Nette\Object implements Texist\ITexyWrapper
+class TexyWrapper extends Nette\Object
 {
-    /** @var  Texy */
+    /** @var Texy */
     private $texy;
 
-        public function __construct(Texy $texy)
-        {
-            $this->texy = $texy;
-        }
+    public function __construct(Texy $texy)
+    {
+        $this->texy = $texy;
+    }
 
     public function process($text)
     {

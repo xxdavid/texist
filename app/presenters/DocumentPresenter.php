@@ -3,8 +3,7 @@
 namespace App\Presenters;
 
 use Nette,
-    App\Model,
-    Texist;
+    App\Model;
 
 
 /**
@@ -15,7 +14,7 @@ class DocumentPresenter extends BasePresenter
     /** @var  Model\TexyWrapper */
     private $texy;
 
-    public function injectTexyWrapper(Texist\ITexyWrapper $texyWrapper)
+    public function injectTexyWrapper(Model\TexyWrapper $texyWrapper)
     {
         $this->texy = $texyWrapper;
     }

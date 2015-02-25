@@ -13,10 +13,9 @@
     ],
 	"require": {
 		"nette/nette": "~2.2.0",
-		"tijsverkoyen/dropbox": "dev-master",
-        "texy/texy": "dev-master"
-	},
-    "autoload": {
-        "classmap": ["Texist/"]
-    }
+        "texy/texy": "dev-master",
+        "zendframework/zend-crypt": "~2.3",
+        "dropbox/dropbox-sdk": "1.1.*",
+        "kdyby/autowired": "~1.0"
+	}
 }

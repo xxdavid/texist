@@ -1,0 +1,12 @@
+{block title}Initialization{/block}
+{block content}
+{if !$initialized}
+<p>Thank you for choosing Texist!<br>
+Please fill in your Dropbox app keys, you can find them in the <a href="https://www.dropbox.com/developers/apps">Dropbox App Console</a>.<br>
+After submitting you will be redirected to the sign in page where you'll have to grant access to your Dropbox.
+</p>
+{control initForm}
+{else}
+Texist has been already initialized.
+{/if}
+{/block}

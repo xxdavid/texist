@@ -27,6 +27,7 @@ class RouterFactory
 		$router[] = new Route('v/<filename #raw>', 'Document:view');
         $router[] = new Route('edit/<filename #raw>/process', 'Document:process');
         $router[] = new Route('edit/<filename #raw>', 'Document:edit');
+        $router[] = new Route('sign/in/[<step (1|2)>]', 'Sign:in');
 		$router[] = new Route('<presenter>/[<action>]', 'Homepage:default');
 		return $router;
 	}

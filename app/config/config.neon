@@ -22,18 +22,10 @@ nette:
 
 
 services:
-	- App\Model\DropboxWrapper(%dropbox.appKey%, %dropbox.appSecret%, %tempDir%)
-	- App\Model\DatabaseWrapper
-	- %texyWrapper%
+	- App\Model\CipherWrapper(%cipherKey%)
+	- App\Model\FileStorageWrapper(data.json)
+	- App\Model\DropboxWrapper()
+	- App\Model\TexyWrapper
 	- App\RouterFactory
-	- Texy\Texy
-	authenticator: App\Model\Authenticator
+	- Texy
 	router: @App\RouterFactory::createRouter
-
-database:
-	dsn: 'mysql:host=%database.host%;dbname=%database.dbname%'
-	user: %database.user%
-	password: %database.password%
-	options:
-		lazy: yes
-
