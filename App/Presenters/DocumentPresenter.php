@@ -2,8 +2,8 @@
 
 namespace App\Presenters;
 
-use Nette,
-    App\Model;
+use Nette;
+use App\Model;
 
 
 /**
@@ -44,8 +44,8 @@ class DocumentPresenter extends BasePresenter
 
     private function protect($ajax = false)
     {
-        if (!$this->getUser()->isLoggedIn()){
-            if ($ajax){
+        if (!$this->getUser()->isLoggedIn()) {
+            if ($ajax) {
                 $this->context->httpResponse->setCode(401);
                 $this->sendResponse(new Nette\Application\Responses\JsonResponse(["message" => "Authentication Required"]));
             } else {

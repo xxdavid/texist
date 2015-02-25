@@ -2,8 +2,8 @@
 
 namespace App\Presenters;
 
-use Nette,
-	App\Model;
+use Nette;
+use App\Model;
 
 
 /**
@@ -11,10 +11,8 @@ use Nette,
  */
 class HomepagePresenter extends BasePresenter
 {
-
-	public function renderDefault()
-	{
-		$this->template->filesList = $this->dropbox->getFilesList('', ['texy'], false);
-	}
-
+    public function renderDefault()
+    {
+        $this->template->filesList = $this->dropbox->getFilesList('', ['texy'], false);
+    }
 }

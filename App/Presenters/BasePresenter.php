@@ -2,9 +2,9 @@
 
 namespace App\Presenters;
 
-use Nette,
-	App\Model,
-    Kdyby\Autowired\AutowireProperties;
+use Nette;
+use App\Model;
+use Kdyby\Autowired\AutowireProperties;
 
 
 /**
@@ -37,5 +37,4 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         $this->template->url = $this->context->httpRequest->getUrl()->getAbsoluteUrl();
         $this->template->presenter = $this->getName();
     }
-
 }

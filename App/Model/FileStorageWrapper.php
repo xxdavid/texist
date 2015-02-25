@@ -53,7 +53,6 @@ class FileStorageWrapper implements IStorage
         } else {
             return $result;
         }
-
     }
 
     /**
@@ -103,7 +102,7 @@ class FileStorageWrapper implements IStorage
     {
         $encodedContent = [];
         foreach ($this->content as $key => $value) {
-                $encodedContent[$key] = $this->cipher->encrypt($value);
+            $encodedContent[$key] = $this->cipher->encrypt($value);
         }
         file_put_contents($this->path, json_encode($encodedContent, JSON_PRETTY_PRINT));
     }

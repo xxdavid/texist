@@ -55,10 +55,10 @@ class DropboxWrapper extends \Nette\Object
     {
         $metadata = $this->dropbox->getMetadataWithChildren('/' . $path);
         $list = [];
-        foreach($metadata['contents'] as $file){
+        foreach ($metadata['contents'] as $file) {
             $pathParts = pathinfo($file['path']);
-            if (!$extensionFilter OR in_array($pathParts['extension'], $extensionFilter)) {
-                if ($includeExtension){
+            if (!$extensionFilter or in_array($pathParts['extension'], $extensionFilter)) {
+                if ($includeExtension) {
                     $list[] = trim($file['path'], '/');
                 } else {
                     $list[] = trim($pathParts['dirname'] . '/' . $pathParts['filename'], '/\\');
@@ -67,5 +67,4 @@ class DropboxWrapper extends \Nette\Object
         }
         return $list;
     }
-
 }

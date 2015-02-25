@@ -13,7 +13,6 @@ class CipherWrapper
     {
         $this->cipher = BlockCipher::factory('mcrypt');
         $this->cipher->setKey($key);
-
     }
 
     public function encrypt($string)

@@ -3,8 +3,8 @@
 namespace App\Presenters;
 
 use Dropbox\ArrayEntryStore;
-use Nette,
-	App\Model;
+use Nette;
+use App\Model;
 
 
 /**
@@ -12,10 +12,10 @@ use Nette,
  */
 class SignPresenter extends BasePresenter
 {
-	public function injectStorage(Model\IStorage $storage)
-	{
-		$this->storage = $storage;
-	}
+    public function injectStorage(Model\IStorage $storage)
+    {
+        $this->storage = $storage;
+    }
 
     public function actionIn($redirect = '/', $step = 1)
     {
@@ -45,15 +45,15 @@ class SignPresenter extends BasePresenter
     }
 
 
-	public function actionOut($redirect)
-	{
-		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
+    public function actionOut($redirect)
+    {
+        $this->getUser()->logout();
+        $this->flashMessage('You have been signed out.');
         if ($redirect) {
             $this->redirectUrl($redirect, 302);
         }
-		$this->redirect('homepage:default');
-	}
+        $this->redirect('homepage:default');
+    }
 
     private function getDropboxWebAuth()
     {
@@ -67,5 +67,4 @@ class SignPresenter extends BasePresenter
         $this->absoluteUrls = false;
         return $webAuth;
     }
-
 }

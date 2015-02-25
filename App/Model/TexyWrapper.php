@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-use Nette,
-    Texy;
+use Nette;
+use Texy;
 
 class TexyWrapper extends Nette\Object
 {
