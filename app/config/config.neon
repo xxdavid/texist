@@ -26,6 +26,6 @@ services:
 	- App\Model\FileStorageWrapper(data.json)
 	- App\Model\DropboxWrapper()
 	- App\Model\TexyWrapper
-	- App\RouterFactory
+	- App\Router\RouterFactory
 	- Texy
 	router: @App\RouterFactory::createRouter
