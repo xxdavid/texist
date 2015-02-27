@@ -13,9 +13,6 @@ class FileStorageWrapper implements IStorage
     /** @var  CipherWrapper */
     private $cipher;
 
-    /** @var bool|null */
-    private $initialized = null;
-
     /** @var array */
     private $possibleKeys = ['appKey', 'appSecret', 'accessToken', 'dropboxUID'];
 
