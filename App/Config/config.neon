@@ -28,4 +28,4 @@ services:
 	- App\Model\TexyWrapper
 	- App\Router\RouterFactory
 	- Texy
-	router: @App\RouterFactory::createRouter
+	router: @App\Router\RouterFactory::createRouter
