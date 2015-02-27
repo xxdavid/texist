@@ -31,7 +31,7 @@ class FileStorageWrapper implements IStorage
     private function createFileIfDoesNotExists()
     {
         if (!file_exists($this->path)) {
-            if (file_put_contents($this->path, '{}') == false) {
+            if (file_put_contents($this->path, '{}') === false) {
                 throw new \Exception("Can't write file $this->path, create it please manually.");
             }
         }
