@@ -31,8 +31,7 @@ class SignPresenter extends BasePresenter
                         $this->storage->set('accessToken', $accessToken);
                         $this->storage->set('dropboxUID', $userId);
                     } elseif ($userId != $this->storage->get('dropboxUID')) {
-                        //TODO
-                        die();
+                        throw new Nette\Application\ForbiddenRequestException();
                     }
 
                     $this->getUser()->login(new Nette\Security\Identity(0));

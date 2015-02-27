@@ -51,7 +51,6 @@ class DocumentPresenter extends BasePresenter
             } else {
                 $this->redirect(301, 'Sign:in', $this->context->httpRequest->getUrl()->getAbsoluteUrl());
             }
-            die();
         }
     }
 }
